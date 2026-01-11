@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Skills</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<!-- Image Popup Modal -->
+<div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+</div>
+
+<script>
+function openModal(imgSrc) {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    modalImg.src = imgSrc;
+    modal.style.display = "flex";
+}
+
+// Close modal
+function closeModal() {
+    document.getElementById("imageModal").style.display = "none";
+}
+
+// Close modal when clicking outside image
+document.getElementById("imageModal").addEventListener("click", function(e) {
+    if (e.target === this) {
+        closeModal();
+    }
+});
+</script>
+
+<body>
+<div class="layout">
+<aside class="sidebar">
+<img src="images/akma.jpg" class="side-pic" alt="Profile Picture">
+        <h2>Nur Saidatul Akma</h2>
+        <p>Data Analyst</p>
+<nav>
+<ul>
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About Me</a></li>
+<li><a href="education.html">Education</a></li>
+<li><a href="skills.html" class="active">Skills</a></li>
+<li><a href="projects.html">Experience</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+</nav>
+</aside>
+
+
+<main class="content">
+
+  <h2>Technical Skills</h2>
+  <div class="skill-grid">
+
+    <div class="skill-card">
+      <i class="fa-brands fa-python"></i>
+      <div class="skill-text">
+        <h4>Python</h4>
+        <p>Data cleaning, analysis, and visualization using Pandas, NumPy, and Matplotlib.</p>
+        <button class="view-btn" onclick="openModal('images/python.png')">View</button>
+      </div>
+    </div>
+
+
+    <div class="skill-card">
+      <i class="fa-solid fa-leaf"></i>
+      <div class="skill-text">
+        <h4>MongoDB</h4>
+        <p>Working with NoSQL databases for flexible data storage.</p>
+      <button class="view-btn" onclick="openModal('images/mongodb.png')">View</button>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-file-excel"></i>
+      <div class="skill-text">
+        <h4>Excel</h4>
+        <p>Advanced formulas, PivotTables, data analysis, and dashboard creation.</p>
+      <button class="view-btn" onclick="openModal('images/excel.png')">View</button>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-chart-pie"></i>
+      <div class="skill-text">
+        <h4>Power BI</h4>
+        <p>Building data models and dashboards for business reporting.</p>
+      <button class="view-btn" onclick="openModal('images/powerbi.png')">View</button>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-server"></i>
+      <div class="skill-text">
+        <h4>MySQL / PostgreSQL</h4>
+        <p>Managing relational databases and optimizing queries.</p>
+      <button class="view-btn" onclick="openModal('images/mysql.png')">View</button>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-r"></i>
+      <div class="skill-text">
+        <h4>R</h4>
+        <p>Statistical analysis and data visualization for research purposes.</p>
+      <button class="view-btn" onclick="openModal('images/R.png')">View</button>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-solid fa-code"></i>
+      <div class="skill-text">
+        <h4>VBA</h4>
+        <p>Automating repetitive tasks and improving Excel workflows.</p>
+      <button class="view-btn" onclick="openModal('images/vba.png')">View</button>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <i class="fa-brands fa-git-alt"></i>
+      <div class="skill-text">
+        <h4>Git</h4>
+        <p>Version control for tracking changes and collaborating on projects.</p>
+      <button class="view-btn" onclick="openModal('images/git.png')">View</button>
+      </div>
+    </div>
+
+  </div>
+
+
+
+<div style="height:40px;"></div>
+
+  <h2>Soft Skills</h2>
+  <div class="skill-grid">
+
+    <div class="skill-card soft">
+      <i class="fa-solid fa-brain"></i>
+      <div class="skill-text">
+        <h4>Analytical Thinking</h4>
+        <p>Breaking down complex problems to uncover meaningful insights.</p>
+      </div>
+    </div>
+
+    <div class="skill-card soft">
+      <i class="fa-solid fa-puzzle-piece"></i>
+      <div class="skill-text">
+        <h4>Problem Solving</h4>
+        <p>Identifying issues and developing practical data-driven solutions.</p>
+      </div>
+    </div>
+
+    <div class="skill-card soft">
+      <i class="fa-solid fa-comments"></i>
+      <div class="skill-text">
+        <h4>Effective Communication</h4>
+        <p>Explaining insights clearly to both technical and non-technical audiences.</p>
+      </div>
+    </div>
+
+    <div class="skill-card soft">
+      <i class="fa-solid fa-people-group"></i>
+      <div class="skill-text">
+        <h4>Team Collaboration</h4>
+        <p>Working effectively with others to achieve project goals.</p>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</main>
+</div>
+</body>
+</html>

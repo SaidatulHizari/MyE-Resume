@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Education</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ===============================
+   EDUCATION CARDS
+=============================== */
+.edu-card {
+  background: linear-gradient(135deg, #f0f4ff, #dbe6ff);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+}
+
+.edu-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
+
+.edu-card h3 {
+  font-size: 20px;
+  color: #1a3d8f;
+  margin-bottom: 8px;
+}
+
+.edu-card p {
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.edu-card .view-btn {
+  padding: 8px 18px;
+  background: #1a3d8f;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 12px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.edu-card .view-btn:hover {
+  background: #142b66;
+  transform: scale(1.05);
+}
+
+/* ===============================
+   EDUCATION POPUP (MODAL)
+=============================== */
+#imagePopup.edu-popup {
+  backdrop-filter: blur(10px);
+  background: rgba(10, 10, 40, 0.85);
+}
+
+#imagePopup.edu-popup .popup-image {
+  max-width: 65%;
+  max-height: 75%;
+  border-radius: 14px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7);
+}
+
+#imagePopup.edu-popup .popup-close {
+  top: 25px;
+  right: 35px;
+  font-size: 38px;
+}
+
+#imagePopup.edu-popup .popup-nav {
+  font-size: 42px;
+}
+
+#imagePopup.edu-popup .popup-dots {
+  bottom: 30px;
+}
+
+#imagePopup.edu-popup .popup-dots .dot {
+  width: 12px;
+  height: 12px;
+  background: #888;
+}
+
+#imagePopup.edu-popup .popup-dots .dot.active {
+  background: #fff;
+}
+</style>
+</head>
+
+<body>
+<div class="layout">
+<aside class="sidebar">
+  <img src="images/akma.jpg" class="side-pic" alt="Profile Picture">
+  <h2>Nur Saidatul Akma</h2>
+  <p>Data Analyst</p>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Me</a></li>
+      <li><a href="education.html" class="active">Education</a></li>
+      <li><a href="skills.html">Skills</a></li>
+      <li><a href="projects.html">Experience</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</aside>
+
+<main class="content">
+<h2>Education</h2>
+
+<div class="edu-card">
+  <h3>Bachelor of Information Science (Honours), Information Systems Management</h3>
+  <p>UiTM Puncak Perdana (Apr 2025 – Present)</p>
+  <p>CGPA: 3.75</p>
+  <button class="view-btn"
+    onclick="openPopup([ 'images/pundana.jpeg'], 'edu')">
+    View
+  </button>
+</div>
+
+<div style="height:10px;"></div>
+
+<div class="edu-card">
+  <h3>Diploma in Business Management</h3>
+  <p>Politeknik Sultan Azlan Shah (Jun 2021 – Jun 2024)</p>
+  <p>CGPA: 3.65</p>
+  <button class="view-btn"
+    onclick="openPopup([ 'images/psas.png' ], 'edu')">
+    View
+  </button>
+</div>
+
+<div style="height:10px;"></div>
+
+<div class="edu-card">
+  <h3>Sijil Pelajaran Malaysia (SPM)</h3>
+  <p>Sekolah Menengah Kebangsaan St. Bernadette's Convent (Jan 2016 – Feb 2021)</p>
+  <p>SPM: 8A 1B</p>
+  <button class="view-btn"
+    onclick="openPopup([ 'images/smkconvent.png' ], 'edu')">
+    View
+  </button>
+</div>
+
+</main>
+</div>
+
+<!-- ===== IMAGE POPUP (EDUCATION) ===== -->
+<div id="imagePopup" class="popup edu-popup" onclick="closePopup(event)">
+  <span class="popup-close">&times;</span>
+  <span class="popup-nav left" onclick="changePopupImage(-1)">❮</span>
+  <img id="popupImage" class="popup-image">
+  <span class="popup-nav right" onclick="changePopupImage(1)">❯</span>
+  <div id="popupDots" class="popup-dots"></div>
+</div>
+
+<script>
+let popupImages = [];
+let popupIndex = 0;
+
+function openPopup(images, type) {
+  popupImages = images;
+  popupIndex = 0;
+  const popup = document.getElementById('imagePopup');
+  if(type === 'edu') popup.classList.add('edu-popup');
+  popup.style.display = 'flex';
+  updatePopup();
+}
+
+function closePopup(e) {
+  if(e.target.id === 'imagePopup' || e.target.classList.contains('popup-close')) {
+    document.getElementById('imagePopup').style.display = 'none';
+  }
+}
+
+function changePopupImage(step) {
+  popupIndex = (popupIndex + step + popupImages.length) % popupImages.length;
+  updatePopup();
+}
+
+function updatePopup() {
+  document.getElementById('popupImage').src = popupImages[popupIndex];
+
+  const dots = document.getElementById('popupDots');
+  dots.innerHTML = '';
+  popupImages.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === popupIndex ? ' active' : '');
+    dot.onclick = () => { popupIndex = i; updatePopup(); };
+    dots.appendChild(dot);
+  });
+}
+</script>
+
+</body>
+</html>

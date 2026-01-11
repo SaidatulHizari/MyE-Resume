@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects & Experience</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <img src="images/akma.jpg" class="side-pic" alt="Profile Picture">
+    <h2>Nur Saidatul Akma</h2>
+    <p>Data Analyst</p>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Me</a></li>
+        <li><a href="education.html">Education</a></li>
+        <li><a href="skills.html">Skills</a></li>
+        <li><a href="projects.html" class="active">Experience</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <main class="content">
+    <!-- ===== WORKING EXPERIENCE ===== -->
+    <h2>Working Experience</h2>
+
+    <div class="project-card">
+      <h3>Concession Staff – Food & Beverage</h3>
+      <p><strong>Company:</strong> GSC Seia City Mall, Setia Alam</p>
+      <p><strong>Period:</strong> Nov 2025 – Present</p>
+      <ul>
+        <li>Prepare and serve snacks and beverages.</li>
+        <li>Operate POS system accurately.</li>
+        <li>Maintain cleanliness and hygiene.</li>
+        <li>Provide professional customer service.</li>
+      </ul>
+      <button class="view-btn"
+        onclick="openPopup([
+          'images/gsc1.png',
+          'images/gsc2.png',
+          'images/gsc3.png'
+        ])">
+        View
+      </button>
+    </div>
+
+    <div class="project-card">
+      <h3>Assistant Sales Manager</h3>
+      <p><strong>Company:</strong> Al-Ikhsan Silverlake, Batu Gajah</p>
+      <p><strong>Period:</strong> Oct 2024 – Mar 2025</p>
+      <ul>
+        <li>Managed daily sales operations.</li>
+        <li>Supervised staff performance.</li>
+        <li>Maintained inventory levels.</li>
+      </ul>
+      <button class="view-btn"
+        onclick="openPopup([
+          'images/al-ikhsan.png',
+          'images/alikhsan1.png',
+          'images/alikhsan2.png',
+          'images/alikhsan3.png',
+          'images/alikhsan4.png'
+          ])">
+        View
+      </button>
+    </div>
+
+    <div class="project-card">
+      <h3>Part-Time Staff – Food & Beverage</h3>
+      <p><strong>Company:</strong> Dhotel, Seri Iskandar</p>
+      <p><strong>Period:</strong> Apr 2023 – JUn 2023</p>
+      <ul>
+        <li>Prepared and served snacks and beverages to customers.</li>
+        <li>Operated cash register and handled basic POS transactions.</li>
+        <li>Maintained cleanliness and hygiene at the concession area.</li>
+      </ul>
+      <button class="view-btn"
+        onclick="openPopup([
+          'images/fnb1.png',
+          'images/fnb2.png',
+          'images/fnb3.png'
+          ])">
+        View
+      </button>
+    </div>
+
+    <div style="height:20px;"></div>
+
+    <!-- ===== PROJECTS ===== -->
+    <h2>Projects</h2>
+
+    <div class="project-card">
+      <h3>Small Business Marketing Plan</h3>
+      <ul>
+        <li>Conducted market research to identify target customers and competitors for a small business.</li>
+        <li>Developed a basic marketing strategy including pricing, promotion, and distribution plans.</li>
+        <li>Prepared a written marketing proposal and presented findings to the class.</li>
+      </ul>
+      <button class="view-btn"
+        onclick="openPopup([
+          'images/project11.jpeg',
+          'images/project12.jpeg'
+          ])">
+        View
+      </button>
+    </div>
+
+    <div class="project-card">
+      <h3>Business Operations & Financial Analysis</h3>
+      <ul>
+        <li>Analyzed daily business operations to identify efficiency and cost-saving opportunities.</li>
+        <li>Prepared simple financial records including income statements and expense tracking.</li>
+        <li>Evaluated business performance and suggested improvements based on financial data.</li>
+      </ul>
+      <button class="view-btn"
+        onclick="openPopup([
+          'images/project21.jpeg',
+          'images/project22.jpeg',
+          'images/project23.jpeg',
+          'images/project24.jpeg',
+          ])">
+        View
+      </button>
+    </div>
+  </main>
+</div>
+
+<!-- ===== IMAGE POPUP MODAL ===== -->
+<div id="imagePopup" class="popup" onclick="closePopup(event)">
+  <span class="popup-close">&times;</span>
+
+  <span class="popup-nav left" onclick="changePopupImage(-1)">❮</span>
+  <img id="popupImage" class="popup-image">
+  <span class="popup-nav right" onclick="changePopupImage(1)">❯</span>
+
+  <div id="popupDots" class="popup-dots"></div>
+</div>
+
+<script>
+let popupImages = [];
+let popupIndex = 0;
+
+function openPopup(images) {
+  popupImages = images;
+  popupIndex = 0;
+  document.getElementById('imagePopup').style.display = 'flex';
+  updatePopup();
+}
+
+function closePopup(e) {
+  if (e.target.id === 'imagePopup' || e.target.classList.contains('popup-close')) {
+    document.getElementById('imagePopup').style.display = 'none';
+  }
+}
+
+function changePopupImage(step) {
+  popupIndex = (popupIndex + step + popupImages.length) % popupImages.length;
+  updatePopup();
+}
+
+function updatePopup() {
+  document.getElementById('popupImage').src = popupImages[popupIndex];
+
+  const dots = document.getElementById('popupDots');
+  dots.innerHTML = '';
+  popupImages.forEach((_, i) => {
+    const dot = document.createElement('span');
+    dot.className = 'dot' + (i === popupIndex ? ' active' : '');
+    dot.onclick = () => { popupIndex = i; updatePopup(); };
+    dots.appendChild(dot);
+  });
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,489 @@
+/* =========================================================
+   GLOBAL RESET & BASE SETTINGS
+========================================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =========================================================
+   BODY
+   - One background image for ALL pages
+   - Fixed background with soft overlay
+========================================================= */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: url("images/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  color: #333;
+}
+
+/* White overlay to improve text readability */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: -1;
+}
+
+/* =========================================================
+   MAIN LAYOUT
+========================================================= */
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   SIDEBAR
+========================================================= */
+.sidebar {
+  width: 260px;
+  padding: 25px 20px;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 2px 0 15px rgba(0,0,0,0.12);
+}
+
+/* Hide sidebar on Home page */
+body.home .sidebar {
+  display: none;
+}
+
+/* =========================================================
+   PROFILE SECTION (SIDEBAR)
+========================================================= */
+.side-pic {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #3498db;
+  margin-bottom: 15px;
+}
+
+.sidebar h2 {
+  font-size: 20px;
+  margin: 10px 0 5px;
+  color: #2c3e50;
+}
+
+.sidebar p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 25px;
+}
+
+/* =========================================================
+   SIDEBAR NAVIGATION
+========================================================= */
+.sidebar nav ul {
+  list-style: none;
+}
+
+.sidebar nav ul li a {
+  display: block;
+  padding: 12px 15px;
+  margin: 8px 0;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  color: #3498db;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.sidebar nav ul li a:hover {
+  background: #3498db;
+  color: #ffffff;
+  transform: translateX(6px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Active page */
+.sidebar nav ul li a.active {
+  background: #3498db;
+  color: #ffffff;
+}
+
+/* =========================================================
+   MAIN CONTENT AREA
+========================================================= */
+.content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* Center content on Home page */
+body.home .content {
+  width: 100%;
+  padding: 70px 40px;
+}
+
+/* Section headings */
+.content h2 {
+  border-left: 5px solid #3498db;
+  padding-left: 12px;
+  margin-bottom: 25px;
+  color: #3498db;
+}
+
+/* =========================================================
+   HERO SECTION (HOME PAGE)
+========================================================= */
+.hero {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 35px;
+  border-radius: 14px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 40px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* =========================================================
+   HOME PAGE NAVIGATION CARDS
+========================================================= */
+.nav-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 25px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.nav-card {
+  padding: 25px 20px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 14px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: #3498db;
+  text-decoration: none;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: all 0.3s ease;
+}
+
+.nav-card:hover {
+  background: #3498db;
+  color: #ffffff;
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.18);
+}
+
+/* =========================================================
+   SKILL GRID
+========================================================= */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+}
+
+/* =========================================================
+   SKILL CARDS (WITH ICON + DESCRIPTION)
+========================================================= */
+.skill-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 24px;
+  min-height: 120px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Skill card hover effect */
+.skill-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.18);
+}
+
+/* =========================================================
+   SKILL ICONS
+========================================================= */
+.skill-card i {
+  font-size: 36px;              /* BIGGER ICON */
+  margin-top: 4px;
+  color: #4a6cf7;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Soft skills icon color */
+.skill-card.soft i {
+  color: #6b7280;
+}
+
+/* Icon animation on hover */
+.skill-card:hover i {
+  transform: scale(1.2);
+  color: #2f4fff;
+}
+
+/* =========================================================
+   SKILL TEXT
+========================================================= */
+.skill-text h4 {
+  font-size: 18px;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+.skill-text p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   PROJECT & EDUCATION CARDS
+========================================================= */
+.project-card,
+.edu-card {
+  background: rgba(255, 255, 255, 0.95);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover,
+.edu-card:hover {
+  transform: translateY(-5px);
+}
+
+/* =========================================================
+   BIODATA TABLE
+========================================================= */
+.biodata-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.biodata-table td {
+  padding: 10px 14px;
+  vertical-align: top;
+}
+
+.biodata-table td:first-child {
+  width: 30%;
+  color: #555;
+  font-weight: 600;
+}
+
+/* =========================================================
+   RESPONSIVE (MOBILE VIEW)
+========================================================= */
+@media (max-width: 768px) {
+
+  .layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .content {
+    padding: 25px;
+  }
+
+  body.home .content {
+    padding: 40px 20px;
+  }
+
+  .skill-card {
+    min-height: auto;
+  }
+}
+
+/* =========================================
+   HERO LOGO (ABOVE TITLE)
+========================================= */
+.hero-logo {
+    width: 300px;        /* Adjust size if needed */
+    margin-bottom: 15px;
+}
+
+/* Center everything inside hero */
+.hero {
+    text-align: center;
+}
+
+/* Toggle button */
+.toggle-btn {
+    padding: 10px 22px;
+    background: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.toggle-btn:hover {
+    background: #3b57e3;
+}
+
+/* Student info box */
+.student-info {
+    display: none;
+    margin-top: 20px;
+    background: rgba(255,255,255,0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* View button only appears on hover */
+.skill-card .view-btn {
+    display: none;
+    margin-top: 8px;
+    padding: 6px 14px;
+    font-size: 13px;
+    background: #4a6cf7;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.skill-card:hover .view-btn {
+    display: inline-block;
+}
+
+/* Modal overlay */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.75);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal image */
+.modal-content {
+    max-width: 85%;
+    max-height: 85%;
+    border-radius: 10px;
+}
+
+/* Close button (X) */
+.close {
+    position: absolute;
+    top: 18px;
+    right: 26px;
+    font-size: 32px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Reuse your project-card styling */
+.project-card {
+  background: rgba(255,255,255,0.95);
+  padding: 25px;
+  border-radius: 14px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* View button */
+.project-card .view-btn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  font-size: 14px;
+  background: #4a6cf7;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.project-card .view-btn:hover {
+  background: #3b57e3;
+}
+
+.card-images img {
+    max-width: 100%;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Optional: make multiple images scrollable horizontally */
+.card-images {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+}
+
+/* ===== IMAGE POPUP ===== */
+.popup {
+  display: none;
+  position: fixed;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  background: rgba(0,0,0,0.4);
+  z-index: 999;
+  align-items: center;
+  justify-content: center;
+}
+
+.popup-image {
+  max-width: 60%;
+  max-height: 70%;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+}
+
+.popup-close {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  font-size: 36px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.popup-nav {
+  position: absolute;
+  font-size: 40px;
+  color: #fff;
+  cursor: pointer;
+  user-select: none;
+}
+
+.popup-nav.left { left: 40px; }
+.popup-nav.right { right: 40px; }
+
+.popup-dots {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 10px;
+}
+
+.popup-dots .dot {
+  width: 10px;
+  height: 10px;
+  background: #bbb;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.popup-dots .dot.active {
+  background: #fff;
+}
