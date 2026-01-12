@@ -1,103 +1,112 @@
 <!-- index.html with card-style navigation -->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Home - My E-Resume</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - My E-Resume</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <script>
-function toggleStudentInfo() {
-    const info = document.getElementById("studentInfo");
-    info.style.display = info.style.display === "block" ? "none" : "block";
-}
+    function toggleStudentInfo() {
+        const info = document.getElementById("studentInfo");
+        info.style.display = info.style.display === "block" ? "none" : "block";
+    }
 </script>
 
 <body>
-<div class="layout">
-    <aside class="sidebar">
-        <img src="images/akma.jpg" class="side-pic" alt="Profile Picture">
-        <h2>Nur Saidatul Akma</h2>
-        <p>Data Analyst</p>
+    <div class="layout">
+        <aside class="sidebar">
+            <img src="images/akma.jpg" class="side-pic" alt="Profile Picture">
+            <h2>Nur Saidatul Akma</h2>
+            <p>Data Analyst</p>
 
-        <nav>
-        <ul>
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="about.html">About Me</a></li>
-        <li><a href="education.html">Education</a></li>
-        <li><a href="skills.html">Skills</a></li>
-        <li><a href="projects.html">Experience</a></li>
-        <li><a href="contact.html">Contact</a></li>
-        </ul>
-        </nav>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Me</a></li>
+                    <li><a href="education.html">Education</a></li>
+                    <li><a href="skills.html">Skills</a></li>
+                    <li><a href="projects.html">Experience</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
 
-    </aside>
+        </aside>
 
-    <main class="content">
-        <header class="hero">
-            <img src="images/uitm-logo.png" alt="UiTM Logo" class="hero-logo">
-            <h1>Welcome to My E-Resume</h1>
-            <p>Your one-stop place to learn about my background, skills and experience.</p>
-        </header>
+        <main class="content">
+            <header class="hero">
+                <img src="images/akma.jpg" alt="UiTM Logo" class="hero-logo">
+                <h1>Hello, I am Nur Saidatul Akma</h1>
+                <p>Your one-stop place to learn about my background, skills and experience.</p>
+            </header>
 
 
 
-        <section>
+            <section>
 
-            <div style="margin-top: 10px; text-align: center;">
-                <button class="toggle-btn" onclick="toggleStudentInfo()">
-                    View Student Information
-                </button>
-            </div>
+                <div style="margin-top: 10px; text-align: center;">
+                    <button class="toggle-btn" onclick="toggleStudentInfo()">
+                        View My Information
+                    </button>
+                </div>
 
-            <div id="studentInfo" class="student-info">
-                <table class="biodata-table">
-                    <tr>
-                        <td>Student Name</td>
-                        <td>: NUR SAIDATUL AKMA BINTI MOHD HIZARI</td>
-                    </tr>
-                    <tr>
-                        <td>Student ID</td>
-                        <td>: 2025124257</td>
-                    </tr>
-                    <tr>
-                        <td>Faculty</td>
-                        <td>: COMPUTER, INFORMATICS AND MATHEMATICS STUDIES</td>
-                    </tr>
-                    <tr>
-                        <td>Programme</td>
-                        <td>: BACHELOR OF INFORMATION SCIENCE (HONS) IN INFORMATION SYSTEMS MANAGEMENT</td>
-                    </tr>
-                    <tr>
-                        <td>Mode of Study</td>
-                        <td>: Full-Time</td>
-                    </tr>
-                    <tr>
-                        <td>Semester</td>
-                        <td>: 2</td>
-                    </tr>
-                    <tr>
-                        <td>Email</td>
-                        <td>: saidatulkema08@gmail.com</td>
-                    </tr>
-                    <tr>
-                        <td>UiTM Google Email</td>
-                        <td>: 2025124257@student.uitm.edu.my</td>
-                    </tr>
-                </table>
-            </div>
+                <div id="studentInfo" class="student-info">
 
-            <div style="height:10px;"></div>
-            
-            <h2>Introduction</h2>
-            
-            <div class="project-card">
-            <p>Hello! I'm Nur Saidatul Akma, a passionate junior data analyst with a strong focus on turning raw data into meaningful insights. I enjoy exploring datasets, building visualizations, and applying statistical techniques to support decision-making and automation.</p>
-        </div>
-        </section>
-    </main>
-</div>
+                    <div class="info-logo">
+                        <img src="images/SA-logo.jpeg" alt="UiTM Logo">
+                    </div>
+
+                    <table class="biodata-table">
+                        <tr>
+                            <td>Student Name</td>
+                            <td>: NUR SAIDATUL AKMA BINTI MOHD HIZARI</td>
+                        </tr>
+                        <tr>
+                            <td>Student ID</td>
+                            <td>: 2025124257</td>
+                        </tr>
+                        <tr>
+                            <td>Group</td>
+                            <td>: CDIM2622ST2</td>
+                        </tr>
+                        <tr>
+                            <td>Course Code</td>
+                            <td>: IMS458</td>
+                        </tr>
+                        <tr>
+                            <td>Course Name</td>
+                            <td>: WEB DESIGN AND DEVELOPMENT</td>
+                        </tr>
+                        <tr>
+                            <td>Program Code</td>
+                            <td>: CDIM262</td>
+                        </tr>
+                        <tr>
+                            <td>Faculty</td>
+                            <td>: Faculty of Information Management, UiTM Puncak Perdana</td>
+                        </tr>
+                        <tr>
+                            <td>Submission Date</td>
+                            <td>: 12 January 2026</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div style="height:10px;"></div>
+
+                <h2>Introduction</h2>
+
+                <div class="project-card">
+                    <p>Hello! I'm Nur Saidatul Akma, a passionate junior data analyst with a strong focus on turning raw
+                        data into meaningful insights. I enjoy exploring datasets, building visualizations, and applying
+                        statistical techniques to support decision-making and automation.</p>
+                </div>
+            </section>
+        </main>
+    </div>
 </body>
+
 </html>
